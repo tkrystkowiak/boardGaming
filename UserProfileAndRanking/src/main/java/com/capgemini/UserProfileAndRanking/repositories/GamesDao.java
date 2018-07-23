@@ -2,7 +2,14 @@ package com.capgemini.UserProfileAndRanking.repositories;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
-public class GamesDao {
+import com.capgemini.UserProfileAndRanking.enitities.Game;
 
+@Repository
+public interface GamesDao {
+	
+	public void addGame(Game game);
+	
+	public Game findGame(String name);
+	
+	
 }
