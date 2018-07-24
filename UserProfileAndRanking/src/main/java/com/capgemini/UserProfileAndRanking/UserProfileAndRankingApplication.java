@@ -5,12 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.capgemini.UserProfileAndRanking.enitities.User;
+import com.capgemini.UserProfileAndRanking.services.UserEditService;
+import com.capgemini.UserProfileAndRanking.services.implementation.UserEditServiceImpl;
 
 @SpringBootApplication
 public class UserProfileAndRankingApplication {
-	
-	@Autowired
-	User uB;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(UserProfileAndRankingApplication.class, args);

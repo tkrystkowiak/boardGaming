@@ -4,14 +4,14 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class IDGenerator {
 
-	private static AtomicLong id;
+	private  static  AtomicLong id;
 	
 	public  IDGenerator(){
 		id = new AtomicLong();
 	}
 	
-	public static AtomicLong getID(){
-		return id.incr;
+	public static long getID(){
+		return id.getAndIncrement();
 	}
 	
 }

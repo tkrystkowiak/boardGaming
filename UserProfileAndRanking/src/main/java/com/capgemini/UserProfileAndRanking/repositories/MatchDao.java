@@ -2,10 +2,12 @@ package com.capgemini.UserProfileAndRanking.repositories;
 
 import org.springframework.stereotype.Repository;
 
+import com.capgemini.UserProfileAndRanking.enitities.Match;
+
 @Repository
-public interface MatchesDao {
+public interface MatchDao {
 	
-	public void add();
+	public void add(Match match);
 	
 
 }

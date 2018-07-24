@@ -8,19 +8,19 @@ import com.capgemini.UserProfileAndRanking.enitities.User;
 import com.capgemini.UserProfileAndRanking.repositories.UserDao;
 
 public class UserDaoImpl implements UserDao {
-	
+
 	private List<User> userDB;
-	
-		public UserDaoImpl(){
-			userDB = new ArrayList<User>();
-		}
+
+	public UserDaoImpl() {
+		userDB = new ArrayList<User>();
+	}
 
 	@Override
 	public User findUserByName(String firstName, String lastName) {
 		Iterator<User> itr = userDB.iterator();
-		while(itr.hasNext()){
+		while (itr.hasNext()) {
 			User user = itr.next();
-			if(user.getFirstName()==firstName||user.getLastName()==lastName){
+			if (user.getFirstName() == firstName || user.getLastName() == lastName) {
 				return user;
 			}
 		}
@@ -28,25 +28,20 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findUserByID(int ID) {
+	public User findUserByID(long id) {
 		Iterator<User> itr = userDB.iterator();
-		while(itr.hasNext()){
+		while (itr.hasNext()) {
 			User user = itr.next();
-			if(user.getId()==ID){
+			if (user.getId() == id) {
 				return user;
 			}
 		}
 		return null;
 	}
-
 
 	@Override
 	public void EditUser(User user) {
-		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
 
 }
