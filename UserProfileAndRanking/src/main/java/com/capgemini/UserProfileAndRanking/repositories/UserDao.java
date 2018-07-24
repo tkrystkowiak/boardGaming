@@ -13,7 +13,6 @@ public interface UserDao {
 	
 	public User findUserByID(int ID);
 	
-	public void addUser(User user);
+	public void EditUser(User user);
 	
-	public void deleteUser(User user);
 }

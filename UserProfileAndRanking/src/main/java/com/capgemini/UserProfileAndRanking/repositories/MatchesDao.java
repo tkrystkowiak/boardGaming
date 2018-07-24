@@ -4,5 +4,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MatchesDao {
+	
+	public void add();
+	
 
 }

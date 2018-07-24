@@ -29,20 +29,20 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findUserByID(int ID) {
+		Iterator<User> itr = userDB.iterator();
+		while(itr.hasNext()){
+			User user = itr.next();
+			if(user.getId()==ID){
+				return user;
+			}
+		}
 		return null;
 	}
 
-	@Override
-	public void addUser(User user) {
-		
-		userDB.add(user);
-		
-	}
 
 	@Override
-	public void deleteUser(User user) {
-		
-		userDB.remove(user);
+	public void EditUser(User user) {
+		// TODO Auto-generated method stub
 		
 	}
 	

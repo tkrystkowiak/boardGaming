@@ -10,6 +10,4 @@ public class Match {
 	private User winner;
 	private Date dateOfMatch;
 	
-	
-	
 }

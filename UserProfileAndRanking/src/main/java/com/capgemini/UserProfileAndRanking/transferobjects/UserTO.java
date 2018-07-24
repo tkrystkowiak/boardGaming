@@ -1,12 +1,6 @@
-package com.capgemini.UserProfileAndRanking.enitities;
+package com.capgemini.UserProfileAndRanking.transferobjects;
 
-import java.util.List;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class User {
-	
+public class UserTO {
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -15,8 +9,7 @@ public class User {
 	private String lifemotto;
 	
 	
-	
-	public User(int id, String firstName, String lastName, String email, String password, String lifemotto) {
+	public UserTO(int id, String firstName, String lastName, String email, String password, String lifemotto) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -61,5 +54,4 @@ public class User {
 	public void setLifemotto(String lifemotto) {
 		this.lifemotto = lifemotto;
 	}
-	
 }

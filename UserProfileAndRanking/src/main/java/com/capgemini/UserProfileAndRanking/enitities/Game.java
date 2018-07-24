@@ -4,7 +4,8 @@ public class Game {
 	
 	private String name;
 	private String 	description;
-	private int numberOfPlayers;
+	private int MaxNumberOfPlayers;
+	private int MinNumberOfPlayers;
 	
 	public String getName() {
 		return name;
@@ -18,11 +19,11 @@ public class Game {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getNumberOfPlayers() {
-		return numberOfPlayers;
+	public int getMaxNumberOfPlayers() {
+		return MaxNumberOfPlayers;
 	}
-	public void setNumberOfPlayers(int numberOfPlayers) {
-		this.numberOfPlayers = numberOfPlayers;
+	public void setMaxNumberOfPlayers(int MaxNumberOfPlayers) {
+		this.MaxNumberOfPlayers = MaxNumberOfPlayers;
 	}
 	
 }

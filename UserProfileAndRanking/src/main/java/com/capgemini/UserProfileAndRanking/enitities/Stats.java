@@ -2,9 +2,11 @@ package com.capgemini.UserProfileAndRanking.enitities;
 
 import java.util.List;
 
-public class UserStat {
+public class Stats {
 	
-	private String level;
+	private int userID;
+	private Level level;
+	private int points;
 	private int rankingPosition;
 	private List<Match> matchesHistory;
 	
