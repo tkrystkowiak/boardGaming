@@ -1,6 +1,6 @@
-package com.capgemini.UserProfileAndRanking.enitities;
+package com.capgemini.UserProfileAndRanking.transferobjects;
 
-public class Game {
+public class GameTO {
 
 	private long GameID;
 	private String name;
@@ -8,14 +8,9 @@ public class Game {
 	private int MaxNumberOfPlayers;
 	private int MinNumberOfPlayers;
 
-	public Game(String name, String description) {
-		this.GameID = GameIdGenerator.getID();
+	public GameTO(String name, String description) {
 		this.name = name;
 		this.description = description;
-	}
-
-	public void setGameID(long GameID) {
-		this.GameID = GameID;
 	}
 
 	public long getGameID() {
@@ -52,6 +47,11 @@ public class Game {
 
 	public void setMaxNumberOfPlayers(int MaxNumberOfPlayers) {
 		this.MaxNumberOfPlayers = MaxNumberOfPlayers;
+	}
+
+	public void setGameID(long gameID) {
+		this.GameID = gameID;
+
 	}
 
 }

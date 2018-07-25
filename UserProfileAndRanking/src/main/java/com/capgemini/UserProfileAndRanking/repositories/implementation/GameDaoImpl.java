@@ -3,50 +3,70 @@ package com.capgemini.UserProfileAndRanking.repositories.implementation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import com.capgemini.UserProfileAndRanking.enitities.Game;
 import com.capgemini.UserProfileAndRanking.repositories.GameDao;
 
 public class GameDaoImpl implements GameDao {
-	
-	private List<Game> gamesDB;
-	
+
+	private List<Game> gameList;
+
 	private GameDaoImpl() {
-		gamesDB = new ArrayList<Game>();
+		gameList = new ArrayList<Game>();
 	}
 
 	@Override
 	public boolean addGame(Game game) {
-		
-		if(isGameAlreadyIn(game.getName())){
+
+		if (isGameAlreadyIn(game.getName())) {
 			return false;
 		}
-		gamesDB.add(game);
+		gameList.add(game);
 		return true;
-		
+
 	}
 
 	@Override
 	public Game findGame(String name) {
-		
-		Iterator<Game> itr = gamesDB.iterator();
-		while(itr.hasNext()){
+
+		Iterator<Game> itr = gameList.iterator();
+		while (itr.hasNext()) {
 			Game game = itr.next();
-			if(game.getName()==name){
+			if (game.getName() == name) {
 				return game;
 			}
 		}
 		return null;
 	}
-	
-	private boolean isGameAlreadyIn(String name){
-		Iterator<Game> itr = gamesDB.iterator();
-		while(itr.hasNext()){
+
+	private boolean isGameAlreadyIn(String name) {
+		Iterator<Game> itr = gameList.iterator();
+		while (itr.hasNext()) {
 			Game game = itr.next();
-			if(game.getName()==name){
+			if (game.getName() == name) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public Game getGameById(long gameId) {
+		Iterator<Game> itr = gameList.iterator();
+		while (itr.hasNext()) {
+			Game game = itr.next();
+			if (game.getGameID() == gameId) {
+				return game;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public List<Game> getListOfGamesByIds(List<Long> gameIds) {
+		List<Game> filteredGames = new ArrayList<Game>();
+		gameIds.forEach(gameId -> filteredGames.add(getGameById(gameId)));
+		return filteredGames;
 	}
 
 }
