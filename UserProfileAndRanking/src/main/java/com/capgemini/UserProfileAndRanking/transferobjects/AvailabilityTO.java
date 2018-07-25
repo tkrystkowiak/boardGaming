@@ -1,13 +1,16 @@
-package com.capgemini.UserProfileAndRanking.enitities;
+package com.capgemini.UserProfileAndRanking.transferobjects;
 
-public class Availability {
+import com.capgemini.UserProfileAndRanking.enitities.Hour;
+import com.capgemini.UserProfileAndRanking.enitities.Status;
+
+public class AvailabilityTO {
 
 	private Hour beginningHour;
 	private Hour finishHour;
 	private Status status;
 	private String comment;
 
-	public Availability(Hour beginningHour, Hour finishHour) {
+	public AvailabilityTO(Hour beginningHour, Hour finishHour) {
 		this.beginningHour = beginningHour;
 		this.finishHour = finishHour;
 		this.status = Status.VALID;

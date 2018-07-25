@@ -1,10 +1,7 @@
 package com.capgemini.UserProfileAndRanking.transferobjects;
 
-import org.springframework.stereotype.Component;
-
 import com.capgemini.UserProfileAndRanking.enitities.User;
 
-@Component
 public class UserMapper {
 
 	public static User mapTOonEntity(UserTO userTO) {

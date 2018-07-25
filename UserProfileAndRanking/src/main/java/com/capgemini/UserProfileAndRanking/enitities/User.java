@@ -19,7 +19,7 @@ public class User {
 	}
 
 	public User(String firstName, String lastName, String email, String password, String lifemotto) {
-		this.id = IDGenerator.getID();
+		this.id = UserIdGenerator.getID();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
