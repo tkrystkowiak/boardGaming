@@ -7,7 +7,7 @@ import com.capgemini.UserProfileAndRanking.transferobjects.AvailabilityTO;
 
 public interface PlayabilityManagingService {
 
-	public void addAvailabilityHours(long userId, AvailabilityTO avTO);
+	public void addAvailabilityHours(AvailabilityTO avTO);
 
 	public void deleteAvailabilityPeriod(long userId, AvailabilityTO avTO);
 

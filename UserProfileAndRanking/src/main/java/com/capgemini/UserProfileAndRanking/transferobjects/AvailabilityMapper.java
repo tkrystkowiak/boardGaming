@@ -9,7 +9,7 @@ public class AvailabilityMapper {
 
 	public Availability mapTOonEntity(AvailabilityTO avTO) {
 
-		Availability av = new Availability(avTO.getBeginningHour(), avTO.getFinishHour());
+		Availability av = new Availability(avTO.getUserID(), avTO.getBeginningHour(), avTO.getFinishHour());
 		av.setComment(avTO.getComment());
 		av.setStatus(avTO.getStatus());
 		return av;
@@ -18,7 +18,7 @@ public class AvailabilityMapper {
 
 	public AvailabilityTO mapEntityOnTO(Availability av) {
 
-		AvailabilityTO avTO = new AvailabilityTO(av.getBeginningHour(), av.getFinishHour());
+		AvailabilityTO avTO = new AvailabilityTO(av.getUserID(), av.getBeginningHour(), av.getFinishHour());
 		avTO.setComment(av.getComment());
 		avTO.setStatus(av.getStatus());
 		return avTO;
