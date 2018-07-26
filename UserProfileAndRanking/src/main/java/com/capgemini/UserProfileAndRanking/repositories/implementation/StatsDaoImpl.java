@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.capgemini.UserProfileAndRanking.enitities.Stats;
 import com.capgemini.UserProfileAndRanking.repositories.StatsDao;
 
+@Repository
 public class StatsDaoImpl implements StatsDao {
 
 	List<Stats> statlist = new ArrayList<Stats>();

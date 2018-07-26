@@ -5,9 +5,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Repository;
+
 import com.capgemini.UserProfileAndRanking.enitities.GameCollection;
 import com.capgemini.UserProfileAndRanking.repositories.GameCollectionDao;
 
+@Repository
 public class GameCollectionDaoImpl implements GameCollectionDao {
 
 	private List<GameCollection> userGameList = new ArrayList<GameCollection>();
@@ -35,7 +38,6 @@ public class GameCollectionDaoImpl implements GameCollectionDao {
 				break;
 			}
 		}
-
 	}
 
 	@Override

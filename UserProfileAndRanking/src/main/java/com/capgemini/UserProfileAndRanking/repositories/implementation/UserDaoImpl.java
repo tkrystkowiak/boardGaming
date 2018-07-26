@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.capgemini.UserProfileAndRanking.enitities.User;
 import com.capgemini.UserProfileAndRanking.repositories.UserDao;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 
-	private List<User> userDB;
+	private List<User> userDB = new ArrayList<User>();
 
-	public UserDaoImpl() {
-		userDB = new ArrayList<User>();
-		initialize();
+	@Override
+	public void addUser(User user) {
+		userDB.add(user);
 	}
 
 	@Override
@@ -21,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 		Iterator<User> itr = userDB.iterator();
 		while (itr.hasNext()) {
 			User user = itr.next();
-			if (user.getFirstName() == firstName || user.getLastName() == lastName) {
+			if (user.getFirstName().equals(firstName) || user.getLastName().equals(lastName)) {
 				return user;
 			}
 		}
@@ -41,15 +44,15 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void EditUser(User user) {
-
+	public void editUser(User user) {
+		User modifiedUser = findUserByID(user.getId());
+		Iterator<User> itr = userDB.iterator();
+		for (int i = 0; i < userDB.size(); i++) {
+			if (userDB.get(i).getId() == user.getId()) {
+				userDB.set(i, user);
+				break;
+			}
+		}
 	}
 
-	private void initialize() {
-		userDB.add(new User("Indiana", "Jones", "indiana@jones.com", "indjon123", "This is Indiana's motto"));
-		userDB.add(new User("Luke", "Skywalker", "luke@skywalker.com", "luksky123", "This is Luke's motto"));
-		userDB.add(new User("Micheal", "Blomkvist", "micheal@blomkvist.com", "micblo123", "This is Micheal's motto"));
-		userDB.add(new User("Van", "Helsing", "van@helsing.com", "vanhel123", "This is Van's motto"));
-		userDB.add(new User("Ramzes", "Second", "ramzes@second.com", "ramsec123", "This is Ramsec's motto"));
-	}
 }

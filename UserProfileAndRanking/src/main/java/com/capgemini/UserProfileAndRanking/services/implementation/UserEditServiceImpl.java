@@ -15,10 +15,17 @@ public class UserEditServiceImpl implements UserEditService {
 	@Autowired
 	private UserDao userDao;
 
+	@Autowired
+	private UserMapper userMapper;
+
 	public UserTO showProfile(long id) {
 		User user = userDao.findUserByID(id);
 		return UserMapper.mapEntityOnTO(user);
 
+	}
+
+	public void editProfile(UserTO userTO) {
+		userDao.editUser(userMapper.mapTOonEntity(userTO));
 	}
 
 	public void changeFirstName(long ID, String firstName) {

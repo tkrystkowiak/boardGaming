@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.capgemini.UserProfileAndRanking.enitities.Game;
 import com.capgemini.UserProfileAndRanking.repositories.GameDao;
 
+@Repository
 public class GameDaoImpl implements GameDao {
 
 	private List<Game> gameList;
@@ -32,7 +35,7 @@ public class GameDaoImpl implements GameDao {
 		Iterator<Game> itr = gameList.iterator();
 		while (itr.hasNext()) {
 			Game game = itr.next();
-			if (game.getName() == name) {
+			if (game.getName().equals(name)) {
 				return game;
 			}
 		}
@@ -43,7 +46,7 @@ public class GameDaoImpl implements GameDao {
 		Iterator<Game> itr = gameList.iterator();
 		while (itr.hasNext()) {
 			Game game = itr.next();
-			if (game.getName() == name) {
+			if (game.getName().equals(name)) {
 				return true;
 			}
 		}

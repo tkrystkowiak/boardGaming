@@ -36,13 +36,14 @@ public class PlayabilityManagingServiceImpl implements PlayabilityManagingServic
 	@Override
 	public void deleteAvailabilityPeriod(long userId, AvailabilityTO avTO) {
 		Availability av = avMapper.mapTOonEntity(avTO);
-		avDao.deleteSingle(userId, av);
+		avDao.deleteAvailability(userId, av);
 	}
 
 	@Override
-	public void editAvailabilityHours(long userId, AvailabilityTO avTO) {
+	public void editAvailabilityHours(AvailabilityTO avTO, AvailabilityTO oldAvTO) {
 		Availability av = avMapper.mapTOonEntity(avTO);
-		avDao.editAvailability(userId, av);
+		Availability oldAv = avMapper.mapTOonEntity(oldAvTO);
+		avDao.editAvailability(av, oldAv);
 	}
 
 	@Override

@@ -4,10 +4,12 @@ import com.capgemini.UserProfileAndRanking.enitities.User;
 
 public interface UserDao {
 
+	public void addUser(User user);
+
 	public User findUserByName(String firstName, String lastName);
 
 	public User findUserByID(long iD);
 
-	public void EditUser(User user);
+	public void editUser(User user);
 
 }

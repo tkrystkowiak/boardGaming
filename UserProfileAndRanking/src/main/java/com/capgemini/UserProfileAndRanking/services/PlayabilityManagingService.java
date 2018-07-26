@@ -11,7 +11,7 @@ public interface PlayabilityManagingService {
 
 	public void deleteAvailabilityPeriod(long userId, AvailabilityTO avTO);
 
-	public void editAvailabilityHours(long userId, AvailabilityTO avTO);
+	public void editAvailabilityHours(AvailabilityTO avTO, AvailabilityTO oldAvTO);
 
 	public List<User> getUsersWithMatchingAvailability(long userId);
 
