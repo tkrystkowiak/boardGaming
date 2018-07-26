@@ -72,4 +72,9 @@ public class GameDaoImpl implements GameDao {
 		return filteredGames;
 	}
 
+	@Override
+	public List<Game> getAllGames() {
+		return gameList;
+	}
+
 }

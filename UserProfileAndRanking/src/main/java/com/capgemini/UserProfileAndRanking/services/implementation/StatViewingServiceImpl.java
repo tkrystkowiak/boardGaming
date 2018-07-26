@@ -1,12 +1,14 @@
 package com.capgemini.UserProfileAndRanking.services.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.capgemini.UserProfileAndRanking.repositories.StatsDao;
 import com.capgemini.UserProfileAndRanking.services.StatViewingService;
 import com.capgemini.UserProfileAndRanking.transferobjects.StatsMapper;
 import com.capgemini.UserProfileAndRanking.transferobjects.StatsTO;
 
+@Service
 public class StatViewingServiceImpl implements StatViewingService {
 
 	@Autowired

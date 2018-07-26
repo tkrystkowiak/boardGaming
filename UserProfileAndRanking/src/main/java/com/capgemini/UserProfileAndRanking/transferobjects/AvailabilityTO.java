@@ -1,7 +1,7 @@
 package com.capgemini.UserProfileAndRanking.transferobjects;
 
-import com.capgemini.UserProfileAndRanking.enitities.Hour;
-import com.capgemini.UserProfileAndRanking.enitities.Status;
+import com.capgemini.UserProfileAndRanking.utils.Hour;
+import com.capgemini.UserProfileAndRanking.utils.Status;
 
 public class AvailabilityTO {
 

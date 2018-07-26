@@ -28,4 +28,10 @@ public class StatsDaoImpl implements StatsDao {
 
 	}
 
+	@Override
+	public void addStats(Stats stats) {
+		statlist.add(stats);
+
+	}
+
 }

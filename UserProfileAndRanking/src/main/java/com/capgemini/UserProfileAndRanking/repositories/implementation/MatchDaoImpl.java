@@ -18,4 +18,16 @@ public class MatchDaoImpl implements MatchDao {
 		matches.add(match);
 	}
 
+	@Override
+	public void creatAndAdd(List<Long> participants) {
+		add(new Match(participants));
+
+	}
+
+	@Override
+	public List<Match> getAllMatches() {
+
+		return matches;
+	}
+
 }

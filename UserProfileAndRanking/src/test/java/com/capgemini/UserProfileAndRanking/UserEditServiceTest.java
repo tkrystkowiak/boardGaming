@@ -35,9 +35,6 @@ public class UserEditServiceTest {
 	public void initializeUsers() {
 		Albert = new User("Albert", "Einstein", "albert@email.com", "password", "life is great");
 		Indiana = new User("Indiana", "Jones", "indiana@jones.com", "indjon123", "This is Indiana's motto");
-		Luke = new User("Luke", "Skywalker", "luke@skywalker.com", "luksky123", "This is Luke's motto");
-		Micheal = new User("Micheal", "Blomkvist", "micheal@blomkvist.com", "micblo123", "This is Micheal's motto");
-		Van = new User("Van", "Helsing", "van@helsing.com", "vanhel123", "This is Van's motto");
 		Ramzes = new UserTO(1, "Ramzes", "Second", "ramzes@second.com", "ramsec123", "This is Ramsec's motto");
 	}
 

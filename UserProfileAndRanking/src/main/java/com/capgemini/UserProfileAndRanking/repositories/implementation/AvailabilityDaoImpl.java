@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.UserProfileAndRanking.enitities.Availability;
-import com.capgemini.UserProfileAndRanking.enitities.Hour;
-import com.capgemini.UserProfileAndRanking.enitities.Status;
 import com.capgemini.UserProfileAndRanking.repositories.AvailabilityDao;
+import com.capgemini.UserProfileAndRanking.utils.Hour;
+import com.capgemini.UserProfileAndRanking.utils.Status;
 
 @Repository
 public class AvailabilityDaoImpl implements AvailabilityDao {

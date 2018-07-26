@@ -13,9 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.capgemini.UserProfileAndRanking.enitities.Availability;
-import com.capgemini.UserProfileAndRanking.enitities.Hour;
-import com.capgemini.UserProfileAndRanking.enitities.Status;
 import com.capgemini.UserProfileAndRanking.repositories.implementation.AvailabilityDaoImpl;
+import com.capgemini.UserProfileAndRanking.utils.Hour;
+import com.capgemini.UserProfileAndRanking.utils.Status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

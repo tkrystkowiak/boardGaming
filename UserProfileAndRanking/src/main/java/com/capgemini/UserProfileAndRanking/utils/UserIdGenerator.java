@@ -1,4 +1,4 @@
-package com.capgemini.UserProfileAndRanking.enitities;
+package com.capgemini.UserProfileAndRanking.utils;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -8,6 +8,10 @@ public class UserIdGenerator {
 
 	public static long getID() {
 		return id.getAndIncrement();
+	}
+
+	public static void resetIndex() {
+		id = new AtomicLong(1);
 	}
 
 }

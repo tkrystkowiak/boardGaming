@@ -1,22 +1,39 @@
 package com.capgemini.UserProfileAndRanking;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Before;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
 public class UserProfileAspect {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserProfileAspect.class);
+	private static final Logger LOGGER = Logger.getLogger("AspectLogging");
 
-	@Before("within(org.capgemini..*)")
-	public void methodTimeLoggingBeforeStart() {
-		LOGGER.info("methodStarted");
+	@Before("execution(*com.capgemini.UserProfileAndRanking..*(..))")
+	public void loggingMethodArguments(JoinPoint joinPoint) {
+
+		Object[] arguments = joinPoint.getArgs();
+		for (Object arg : arguments) {
+			LOGGER.info("Method took argument " + arg);
+		}
 	}
 
-	@After("within(org.capgemini..*)")
-	public void methodTimeLoggingAfterStart() {
-		LOGGER.info("methodFinished");
+	@Pointcut("execution(*com.capgemini.UserProfileAndRanking..*(..))")
+	public void methods() {
+	}
+
+	@Around("methods()")
+	public Object calculateExecutionTime(ProceedingJoinPoint pjp) throws Throwable {
+		long methodStartTime = System.currentTimeMillis();
+		Object output = pjp.proceed();
+		long executionTime = System.currentTimeMillis() - methodStartTime;
+		LOGGER.info("Method executed in " + executionTime + " milliseconds.");
+		return output;
 	}
 
 }

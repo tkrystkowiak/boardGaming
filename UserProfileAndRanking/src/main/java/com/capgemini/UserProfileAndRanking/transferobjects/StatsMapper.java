@@ -9,11 +9,8 @@ public class StatsMapper {
 
 	public Stats mapTOonEntity(StatsTO statsTO) {
 
-		Stats stats = new Stats();
-		stats.setUserID(statsTO.getUserID());
-		stats.setLevel(statsTO.getLevel());
-		stats.setRankingPosition(statsTO.getRankingPosition());
-		stats.setPoints(statsTO.getPoints());
+		Stats stats = new Stats(statsTO.getLevel(), statsTO.getPoints(), statsTO.getRankingPosition(),
+				statsTO.getUserID());
 		stats.setMatchesHistory(statsTO.getMatchesHistory());
 		return stats;
 
@@ -21,11 +18,8 @@ public class StatsMapper {
 
 	public StatsTO mapEntityOnTO(Stats stats) {
 
-		StatsTO statsTO = new StatsTO();
-		statsTO.setUserID(stats.getUserID());
-		statsTO.setLevel(stats.getLevel());
-		statsTO.setRankingPosition(stats.getRankingPosition());
-		statsTO.setPoints(stats.getPoints());
+		StatsTO statsTO = new StatsTO(stats.getLevel(), stats.getPoints(), stats.getRankingPosition(),
+				stats.getUserID());
 		statsTO.setMatchesHistory(stats.getMatchesHistory());
 		return statsTO;
 

@@ -2,6 +2,8 @@ package com.capgemini.UserProfileAndRanking.enitities;
 
 import java.util.List;
 
+import com.capgemini.UserProfileAndRanking.utils.Level;
+
 public class Stats {
 
 	private Level level;
@@ -9,6 +11,13 @@ public class Stats {
 	private int rankingPosition;
 	private List<Match> matchesHistory;
 	private int userID;
+
+	public Stats(Level level, int points, int rankingPosition, int userID) {
+		this.level = level;
+		this.points = points;
+		this.rankingPosition = rankingPosition;
+		this.userID = userID;
+	}
 
 	public int getUserID() {
 		return userID;

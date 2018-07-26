@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.UserProfileAndRanking.enitities.Availability;
-import com.capgemini.UserProfileAndRanking.enitities.User;
 import com.capgemini.UserProfileAndRanking.repositories.AvailabilityDao;
+import com.capgemini.UserProfileAndRanking.repositories.MatchDao;
 import com.capgemini.UserProfileAndRanking.repositories.UserDao;
 import com.capgemini.UserProfileAndRanking.services.PlayabilityManagingService;
 import com.capgemini.UserProfileAndRanking.transferobjects.AvailabilityMapper;
 import com.capgemini.UserProfileAndRanking.transferobjects.AvailabilityTO;
+import com.capgemini.UserProfileAndRanking.transferobjects.UserMapper;
+import com.capgemini.UserProfileAndRanking.transferobjects.UserTO;
 
 @Service
 public class PlayabilityManagingServiceImpl implements PlayabilityManagingService {
@@ -26,6 +28,9 @@ public class PlayabilityManagingServiceImpl implements PlayabilityManagingServic
 
 	@Autowired
 	AvailabilityMapper avMapper;
+
+	@Autowired
+	MatchDao matchDao;
 
 	@Override
 	public void addAvailabilityHours(AvailabilityTO avTO) {
@@ -47,10 +52,16 @@ public class PlayabilityManagingServiceImpl implements PlayabilityManagingServic
 	}
 
 	@Override
-	public List<User> getUsersWithMatchingAvailability(long userId) {
+	public List<UserTO> getUsersWithMatchingAvailability(long userId) {
 		Set<Long> matchingUsersIds = avDao.getMatchingAvailability(userId);
-		List<User> matchingUsers = new ArrayList<User>();
-		matchingUsersIds.forEach(uId -> matchingUsers.add(userDao.findUserByID(uId)));
+		List<UserTO> matchingUsers = new ArrayList<UserTO>();
+		for (long matchUserId : matchingUsersIds) {
+			List<Long> participants = new ArrayList<Long>();
+			participants.add(userId);
+			participants.add(matchUserId);
+			matchDao.creatAndAdd(participants);
+			matchingUsers.add(UserMapper.mapEntityOnTO(userDao.findUserByID(matchUserId)));
+		}
 		return matchingUsers;
 	}
 

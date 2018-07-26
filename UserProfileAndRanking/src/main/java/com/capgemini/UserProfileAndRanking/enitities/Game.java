@@ -1,5 +1,7 @@
 package com.capgemini.UserProfileAndRanking.enitities;
 
+import com.capgemini.UserProfileAndRanking.utils.GameIdGenerator;
+
 public class Game {
 
 	private long GameID;

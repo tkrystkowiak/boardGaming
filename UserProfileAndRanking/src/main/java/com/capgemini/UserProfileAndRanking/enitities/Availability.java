@@ -1,5 +1,8 @@
 package com.capgemini.UserProfileAndRanking.enitities;
 
+import com.capgemini.UserProfileAndRanking.utils.Hour;
+import com.capgemini.UserProfileAndRanking.utils.Status;
+
 public class Availability {
 
 	private long userID;

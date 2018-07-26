@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.capgemini.UserProfileAndRanking.utils.UserIdGenerator;
+
 @Component
 public class User {
 

@@ -3,7 +3,7 @@ package com.capgemini.UserProfileAndRanking.repositories;
 import java.util.Set;
 
 import com.capgemini.UserProfileAndRanking.enitities.Availability;
-import com.capgemini.UserProfileAndRanking.enitities.Hour;
+import com.capgemini.UserProfileAndRanking.utils.Hour;
 
 public interface AvailabilityDao {
 

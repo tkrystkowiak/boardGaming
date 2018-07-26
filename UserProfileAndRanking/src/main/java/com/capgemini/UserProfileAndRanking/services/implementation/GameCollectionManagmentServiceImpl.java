@@ -52,4 +52,14 @@ public class GameCollectionManagmentServiceImpl implements GameCollectionManagme
 
 	}
 
+	@Override
+	public List<GameTO> showAllGames() {
+
+		List<Game> gamesList = gameDao.getAllGames();
+		List<GameTO> mappedGames = new ArrayList<GameTO>();
+		gamesList.forEach(game -> mappedGames.add(gameMapper.mapEntityOnTO(game)));
+		return mappedGames;
+
+	}
+
 }

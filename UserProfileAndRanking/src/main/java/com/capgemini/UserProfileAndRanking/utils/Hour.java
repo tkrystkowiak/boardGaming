@@ -1,4 +1,4 @@
-package com.capgemini.UserProfileAndRanking.enitities;
+package com.capgemini.UserProfileAndRanking.utils;
 
 import java.time.LocalTime;
 

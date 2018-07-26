@@ -2,8 +2,8 @@ package com.capgemini.UserProfileAndRanking.services;
 
 import java.util.List;
 
-import com.capgemini.UserProfileAndRanking.enitities.User;
 import com.capgemini.UserProfileAndRanking.transferobjects.AvailabilityTO;
+import com.capgemini.UserProfileAndRanking.transferobjects.UserTO;
 
 public interface PlayabilityManagingService {
 
@@ -13,6 +13,6 @@ public interface PlayabilityManagingService {
 
 	public void editAvailabilityHours(AvailabilityTO avTO, AvailabilityTO oldAvTO);
 
-	public List<User> getUsersWithMatchingAvailability(long userId);
+	public List<UserTO> getUsersWithMatchingAvailability(long userId);
 
 }

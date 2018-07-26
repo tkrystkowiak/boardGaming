@@ -6,6 +6,8 @@ import com.capgemini.UserProfileAndRanking.transferobjects.GameTO;
 
 public interface GameCollectionManagmentService {
 
+	public List<GameTO> showAllGames();
+
 	public List<GameTO> showGamesCollection(long userId);
 
 	public void removeGame(long userId, long gameId);

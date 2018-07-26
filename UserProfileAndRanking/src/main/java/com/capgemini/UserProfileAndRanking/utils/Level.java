@@ -1,4 +1,4 @@
-package com.capgemini.UserProfileAndRanking.enitities;
+package com.capgemini.UserProfileAndRanking.utils;
 
 public enum Level {
 	

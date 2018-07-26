@@ -2,8 +2,8 @@ package com.capgemini.UserProfileAndRanking.transferobjects;
 
 import java.util.List;
 
-import com.capgemini.UserProfileAndRanking.enitities.Level;
 import com.capgemini.UserProfileAndRanking.enitities.Match;
+import com.capgemini.UserProfileAndRanking.utils.Level;
 
 public class StatsTO {
 
@@ -12,6 +12,13 @@ public class StatsTO {
 	private int rankingPosition;
 	private List<Match> matchesHistory;
 	private int userID;
+
+	public StatsTO(Level level, int points, int rankingPosition, int userID) {
+		this.level = level;
+		this.points = points;
+		this.rankingPosition = rankingPosition;
+		this.userID = userID;
+	}
 
 	public int getUserID() {
 		return userID;
