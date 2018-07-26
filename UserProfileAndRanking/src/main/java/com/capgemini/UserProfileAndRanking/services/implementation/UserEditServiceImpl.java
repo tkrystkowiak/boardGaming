@@ -18,49 +18,16 @@ public class UserEditServiceImpl implements UserEditService {
 	@Autowired
 	private UserMapper userMapper;
 
+	@Override
 	public UserTO showProfile(long id) {
 		User user = userDao.findUserByID(id);
 		return UserMapper.mapEntityOnTO(user);
 
 	}
 
+	@Override
 	public void editProfile(UserTO userTO) {
 		userDao.editUser(userMapper.mapTOonEntity(userTO));
-	}
-
-	public void changeFirstName(long ID, String firstName) {
-
-		User editedUser = userDao.findUserByID(ID);
-		editedUser.setFirstName(firstName);
-
-	}
-
-	public void changeLastName(long ID, String lastName) {
-
-		User editedUser = userDao.findUserByID(ID);
-		editedUser.setLastName(lastName);
-
-	}
-
-	public void changeEmail(long ID, String email) {
-
-		User editedUser = userDao.findUserByID(ID);
-		editedUser.setEmail(email);
-
-	}
-
-	public void changeLifemotto(long ID, String lifemotto) {
-
-		User editedUser = userDao.findUserByID(ID);
-		editedUser.setLifemotto(lifemotto);
-
-	}
-
-	public void changePassword(long ID, String password) {
-
-		User editedUser = userDao.findUserByID(ID);
-		editedUser.setPassword(password);
-
 	}
 
 }
