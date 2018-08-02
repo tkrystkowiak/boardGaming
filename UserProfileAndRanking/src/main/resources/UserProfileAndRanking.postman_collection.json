@@ -11,7 +11,7 @@
 			"name": "http://localhost:8080/userByParams?firstName=Albert&lastName=Einstein&email=albert@email.com",
 			"request": {
 				"url": {
-					"raw": "http://localhost:8080/userByParams?firstName=Albert&lastName=Einstein&email=albert@email.com",
+					"raw": "http://localhost:8080/userByParams?firstName=Albert",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -24,18 +24,6 @@
 						{
 							"key": "firstName",
 							"value": "Albert",
-							"equals": true,
-							"description": ""
-						},
-						{
-							"key": "lastName",
-							"value": "Einstein",
-							"equals": true,
-							"description": ""
-						},
-						{
-							"key": "email",
-							"value": "albert@email.com",
 							"equals": true,
 							"description": ""
 						}
@@ -96,6 +84,36 @@
 					"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"Ramzes\",\r\n    \"lastName\": \"theSecond\",\r\n    \"email\": \"ramzes@email.com\",\r\n    \"lifemotto\": \"life is great\"\r\n}"
 				},
 				"description": "This request edits a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/userByParams?firstName=Albert",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/userByParams?firstName=Albert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userByParams"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Albert",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This request search for users only by one parameter"
 			},
 			"response": []
 		}

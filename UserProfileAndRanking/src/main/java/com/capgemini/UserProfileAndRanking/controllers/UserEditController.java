@@ -19,15 +19,15 @@ public class UserEditController {
 	@Autowired
 	UserEditService userService;
 
-	@RequestMapping("/userById")
+	@RequestMapping(value = "/userById", method = RequestMethod.GET)
 	public UserTO searchUserById(@RequestParam(value = "id", defaultValue = "1") long id) throws NoSuchUserException {
 		return userService.showProfile(id);
 	}
 
-	@RequestMapping("/userByParams")
+	@RequestMapping(value = "/userByParams", method = RequestMethod.GET)
 	public List<UserTO> searchUserByParams(@RequestParam(value = "firstName", required = false) String firstName,
 			@RequestParam(value = "lastName", required = false) String lastName,
-			@RequestParam(value = "email", required = false) String email) {
+			@RequestParam(value = "email", required = false) String email) throws NoSuchUserException {
 		return userService.showProfileByParams(firstName, lastName, email);
 	}
 

@@ -14,6 +14,6 @@ public interface UserEditService {
 
 	public void editProfile(UserTO userTO) throws NoSuchUserException;
 
-	public List<UserTO> showProfileByParams(String firstname, String lastname, String email);
+	public List<UserTO> showProfileByParams(String firstname, String lastname, String email) throws NoSuchUserException;
 
 }

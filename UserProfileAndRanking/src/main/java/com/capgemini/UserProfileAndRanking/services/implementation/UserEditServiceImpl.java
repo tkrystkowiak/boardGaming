@@ -35,10 +35,14 @@ public class UserEditServiceImpl implements UserEditService {
 	}
 
 	@Override
-	public List<UserTO> showProfileByParams(String firstName, String lastName, String email) {
+	public List<UserTO> showProfileByParams(String firstName, String lastName, String email)
+			throws NoSuchUserException {
 		List<User> users = userDao.findUsersByParams(firstName, lastName, email);
 		List<UserTO> mappedUsers = new ArrayList<>();
 		users.forEach(user -> mappedUsers.add(UserMapper.mapEntityOnTO(user)));
+		if (mappedUsers.isEmpty()) {
+			throw new NoSuchUserException();
+		}
 		return mappedUsers;
 	}
 
