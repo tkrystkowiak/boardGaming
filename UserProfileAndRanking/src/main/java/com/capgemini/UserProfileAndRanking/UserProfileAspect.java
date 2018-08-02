@@ -14,7 +14,7 @@ public class UserProfileAspect {
 
 	private static final Logger LOGGER = Logger.getLogger("AspectLogging");
 
-	@Before("execution(*com.capgemini.UserProfileAndRanking..*(..))")
+	@Before("execution(*com.capgemini.UserProfileAndRanking.services.implementation.*(..))")
 	public void loggingMethodArguments(JoinPoint joinPoint) {
 
 		Object[] arguments = joinPoint.getArgs();
@@ -23,7 +23,7 @@ public class UserProfileAspect {
 		}
 	}
 
-	@Pointcut("execution(*com.capgemini.UserProfileAndRanking..*(..))")
+	@Pointcut("execution(*com.capgemini.UserProfileAndRanking.services.implementation.*(..))")
 	public void methods() {
 	}
 

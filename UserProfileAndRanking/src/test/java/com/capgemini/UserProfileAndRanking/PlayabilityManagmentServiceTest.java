@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.capgemini.UserProfileAndRanking.enitities.Availability;
 import com.capgemini.UserProfileAndRanking.enitities.Match;
 import com.capgemini.UserProfileAndRanking.enitities.User;
+import com.capgemini.UserProfileAndRanking.exceptions.NoSuchUserException;
 import com.capgemini.UserProfileAndRanking.repositories.implementation.AvailabilityDaoImpl;
 import com.capgemini.UserProfileAndRanking.repositories.implementation.MatchDaoImpl;
 import com.capgemini.UserProfileAndRanking.repositories.implementation.UserDaoImpl;
@@ -52,14 +53,14 @@ public class PlayabilityManagmentServiceTest {
 	}
 
 	@Test
-	public void shouldReturnListOfMatchingUsersTest() {
+	public void shouldReturnListOfMatchingUsersTest() throws NoSuchUserException {
 
 		List<UserTO> actual = playManagmentService.getUsersWithMatchingAvailability(1);
 		assertEquals(2, actual.size());
 	}
 
 	@Test
-	public void shouldCreateNewMatchesTest() {
+	public void shouldCreateNewMatchesTest() throws NoSuchUserException {
 
 		playManagmentService.getUsersWithMatchingAvailability(1);
 		List<Match> actual = matchDao.getAllMatches();

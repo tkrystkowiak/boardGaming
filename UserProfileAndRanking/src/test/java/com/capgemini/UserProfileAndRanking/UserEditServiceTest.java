@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.capgemini.UserProfileAndRanking.enitities.User;
+import com.capgemini.UserProfileAndRanking.exceptions.NoSuchUserException;
 import com.capgemini.UserProfileAndRanking.repositories.implementation.UserDaoImpl;
 import com.capgemini.UserProfileAndRanking.services.implementation.UserEditServiceImpl;
 import com.capgemini.UserProfileAndRanking.transferobjects.UserTO;
@@ -26,9 +27,6 @@ public class UserEditServiceTest {
 
 	User Albert;
 	User Indiana;
-	User Luke;
-	User Micheal;
-	User Van;
 	UserTO Ramzes;
 
 	@Before
@@ -39,7 +37,7 @@ public class UserEditServiceTest {
 	}
 
 	@Test
-	public void showProfileTest() {
+	public void showProfileTest() throws NoSuchUserException {
 		userDao.addUser(Albert);
 		userDao.addUser(Indiana);
 		UserTO actual = uService.showProfile(2);
@@ -47,7 +45,7 @@ public class UserEditServiceTest {
 	}
 
 	@Test
-	public void showProfileAfterUserEditTest() {
+	public void showProfileAfterUserEditTest() throws NoSuchUserException {
 		uService.editProfile(Ramzes);
 		UserTO actual = uService.showProfile(1);
 		assertEquals("Ramzes", actual.getFirstName());

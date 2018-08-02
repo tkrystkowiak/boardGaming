@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.UserProfileAndRanking.enitities.Availability;
+import com.capgemini.UserProfileAndRanking.exceptions.NoSuchUserException;
 import com.capgemini.UserProfileAndRanking.repositories.AvailabilityDao;
 import com.capgemini.UserProfileAndRanking.repositories.MatchDao;
 import com.capgemini.UserProfileAndRanking.repositories.UserDao;
@@ -52,7 +53,7 @@ public class PlayabilityManagingServiceImpl implements PlayabilityManagingServic
 	}
 
 	@Override
-	public List<UserTO> getUsersWithMatchingAvailability(long userId) {
+	public List<UserTO> getUsersWithMatchingAvailability(long userId) throws NoSuchUserException {
 		Set<Long> matchingUsersIds = avDao.getMatchingAvailability(userId);
 		List<UserTO> matchingUsers = new ArrayList<UserTO>();
 		for (long matchUserId : matchingUsersIds) {

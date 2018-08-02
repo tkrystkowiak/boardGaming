@@ -1,0 +1,103 @@
+{
+	"variables": [],
+	"info": {
+		"name": "UserProfileAndRanking",
+		"_postman_id": "c27a83c4-0cb6-fecb-f365-0de0aec21ab3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/userByParams?firstName=Albert&lastName=Einstein&email=albert@email.com",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/userByParams?firstName=Albert&lastName=Einstein&email=albert@email.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userByParams"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Albert",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lastName",
+							"value": "Einstein",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "email",
+							"value": "albert@email.com",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This request searches for user by params."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/userById?id=2",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/userById?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This request searches for user by Id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/editUser",
+			"request": {
+				"url": "http://localhost:8080/editUser",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"Ramzes\",\r\n    \"lastName\": \"theSecond\",\r\n    \"email\": \"ramzes@email.com\",\r\n    \"lifemotto\": \"life is great\"\r\n}"
+				},
+				"description": "This request edits a user."
+			},
+			"response": []
+		}
+	]
+}
